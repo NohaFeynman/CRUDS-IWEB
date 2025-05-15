@@ -20,7 +20,7 @@ public class AsignacionFormularioDao {
             SELECT af.*, f.titulo, f.descripcion, f.fechaCreacion
             FROM asignacionformulario af
             INNER JOIN formulario f ON af.idFormulario = f.idFormulario
-            WHERE af.idEncuestador = ?
+            WHERE af.idEncuestador = ? and af.estado = 'Activo'
             """;
 
         try (Connection conn = DriverManager.getConnection(url, user, pass);
@@ -34,7 +34,7 @@ public class AsignacionFormularioDao {
 
             while (rs.next()) {
                 AsignacionFormulario asignacion = new AsignacionFormulario();
-                asignacion.setIdAsignacionFormularios(rs.getInt("idAsignacionFormulario"));
+                asignacion.setIdAsignacionFormularios(rs.getInt("idAsignacionFormularios"));
                 asignacion.setIdEncuestador(rs.getInt("idEncuestador"));
                 asignacion.setIdFormulario(rs.getInt("idFormulario"));
                 asignacion.setFechaAsignacion(rs.getTimestamp("fechaAsignacion"));

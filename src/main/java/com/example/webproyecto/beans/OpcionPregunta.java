@@ -1,24 +1,16 @@
-package beans;
+package com.example.webproyecto.beans;
 
 public class OpcionPregunta {
-    private Integer idOpcion;
+    private int idOpcion;
     private String textoOpcion;
-    private Integer idPregunta; // Foreign Key
+    private int idPregunta;
 
-    public OpcionPregunta() {
-    }
-
-    public OpcionPregunta(Integer idOpcion, String textoOpcion, Integer idPregunta) {
-        this.idOpcion = idOpcion;
-        this.textoOpcion = textoOpcion;
-        this.idPregunta = idPregunta;
-    }
-
-    public Integer getIdOpcion() {
+    // Getters y Setters
+    public int getIdOpcion() {
         return idOpcion;
     }
 
-    public void setIdOpcion(Integer idOpcion) {
+    public void setIdOpcion(int idOpcion) {
         this.idOpcion = idOpcion;
     }
 
@@ -30,11 +22,11 @@ public class OpcionPregunta {
         this.textoOpcion = textoOpcion;
     }
 
-    public Integer getIdPregunta() {
+    public int getIdPregunta() {
         return idPregunta;
     }
 
-    public void setIdPregunta(Integer idPregunta) {
+    public void setIdPregunta(int idPregunta) {
         this.idPregunta = idPregunta;
     }
 }

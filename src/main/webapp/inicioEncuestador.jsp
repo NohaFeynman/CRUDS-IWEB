@@ -60,7 +60,7 @@
                 <span>INICIO</span>
             </div>
             <div class="nav-item">
-                <img alt="Buscar" class="nav-icon" src="https://via.placeholder.com/40?text=B"/>
+                <img alt="Buscar" class="nav-icon" src="imagenes/buscar.png"/>
                 <span>BUSCAR</span>
             </div>
             <div class="nav-item">
