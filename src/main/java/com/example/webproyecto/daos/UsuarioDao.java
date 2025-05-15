@@ -1,6 +1,8 @@
 package com.example.webproyecto.daos;
 
 import com.example.webproyecto.beans.Usuario;
+
+import java.io.InputStream;
 import java.sql.*;
 
 public class UsuarioDao {
@@ -44,5 +46,46 @@ public class UsuarioDao {
         }
 
         return usuario;
+    }
+
+    public boolean actualizarFotoPerfil(int idUsuario, InputStream fotoStream) {
+        String sql = "UPDATE usuario SET foto = ? WHERE idUsuario = ?";
+
+        try (Connection conn = DriverManager.getConnection(url, user, pass);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setBlob(1, fotoStream);
+            stmt.setInt(2, idUsuario);
+
+            int filas = stmt.executeUpdate();
+            return filas > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean actualizarPerfil(Usuario usuario) {
+        String sql = """
+        UPDATE usuario 
+        SET nombre = ?, apellido = ?, direccion = ?, idDistrito = ?
+        WHERE idUsuario = ?
+        """;
+
+        try (Connection conn = DriverManager.getConnection(url, user, pass);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, usuario.getNombre());
+            stmt.setString(2, usuario.getApellido());
+            stmt.setString(3, usuario.getDireccion());
+            stmt.setInt(4, usuario.getIdDistrito());
+            stmt.setInt(5, usuario.getIdUsuario());
+
+            int filas = stmt.executeUpdate();
+            return filas > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

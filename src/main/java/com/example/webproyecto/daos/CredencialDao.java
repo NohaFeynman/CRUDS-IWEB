@@ -52,5 +52,34 @@ public class CredencialDao {
 
         return usuario;
     }
+
+    public boolean cambiarContrasenha(int idUsuario, String contrasenhaActual, String nuevaContrasenha) {
+        String sqlVerificar = "SELECT * FROM credencial WHERE idUsuario = ? AND contrasenha = ?";
+        String sqlActualizar = "UPDATE credencial SET contrasenha = ? WHERE idUsuario = ?";
+
+        try (Connection conn = DriverManager.getConnection(url, user, pass);
+             PreparedStatement stmtVerificar = conn.prepareStatement(sqlVerificar);
+             PreparedStatement stmtActualizar = conn.prepareStatement(sqlActualizar)) {
+
+            // Verificar contraseña actual
+            stmtVerificar.setInt(1, idUsuario);
+            stmtVerificar.setString(2, contrasenhaActual);
+            ResultSet rs = stmtVerificar.executeQuery();
+
+            if (rs.next()) {
+                // Contraseña actual correcta, proceder a cambiar
+                stmtActualizar.setString(1, nuevaContrasenha);
+                stmtActualizar.setInt(2, idUsuario);
+                int filas = stmtActualizar.executeUpdate();
+                return filas > 0;
+            }
+            else{
+                return false; // Contraseña actual incorrecta
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
 
