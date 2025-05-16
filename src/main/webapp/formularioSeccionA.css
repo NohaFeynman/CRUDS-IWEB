@@ -1,0 +1,49 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f3f7fb;
+    margin: 0;
+}
+
+.formulario-respuesta-main {
+    margin: 100px auto 40px auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.formulario-respuesta-form {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pregunta-container {
+    margin-bottom: 30px;
+}
+
+.pregunta-texto {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.boton-submit-contenedor {
+    text-align: right;
+    margin-top: 30px;
+}
+
+.boton-submit {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-submit:hover {
+    background-color: #0b7dda;
+}

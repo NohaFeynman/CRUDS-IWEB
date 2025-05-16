@@ -1,28 +1,24 @@
-package beans;
+package com.example.webproyecto.beans;
+
+import java.util.List;
 
 public class Pregunta {
-    private Integer idPregunta;
+    private int idPregunta;
     private String textoPregunta;
-    private Byte tipoPregunta; // 0: multiple, 1: texto
-    private Integer idFormulario; // Foreign Key
-    private Integer orden;
+    private int tipoPregunta; // 1 = Abierta, 2 = Opción múltiple
+    private int idFormulario;
+    private int orden;
+    private String seccion;
 
-    public Pregunta() {
-    }
+    // Lista de opciones si es tipo opción múltiple
+    private List<OpcionPregunta> opciones;
 
-    public Pregunta(Integer idPregunta, String textoPregunta, Byte tipoPregunta, Integer idFormulario, Integer orden) {
-        this.idPregunta = idPregunta;
-        this.textoPregunta = textoPregunta;
-        this.tipoPregunta = tipoPregunta;
-        this.idFormulario = idFormulario;
-        this.orden = orden;
-    }
-
-    public Integer getIdPregunta() {
+    // Getters y Setters
+    public int getIdPregunta() {
         return idPregunta;
     }
 
-    public void setIdPregunta(Integer idPregunta) {
+    public void setIdPregunta(int idPregunta) {
         this.idPregunta = idPregunta;
     }
 
@@ -34,27 +30,43 @@ public class Pregunta {
         this.textoPregunta = textoPregunta;
     }
 
-    public Byte getTipoPregunta() {
+    public int getTipoPregunta() {
         return tipoPregunta;
     }
 
-    public void setTipoPregunta(Byte tipoPregunta) {
+    public void setTipoPregunta(int tipoPregunta) {
         this.tipoPregunta = tipoPregunta;
     }
 
-    public Integer getIdFormulario() {
+    public int getIdFormulario() {
         return idFormulario;
     }
 
-    public void setIdFormulario(Integer idFormulario) {
+    public void setIdFormulario(int idFormulario) {
         this.idFormulario = idFormulario;
     }
 
-    public Integer getOrden() {
+    public int getOrden() {
         return orden;
     }
 
-    public void setOrden(Integer orden) {
+    public void setOrden(int orden) {
         this.orden = orden;
+    }
+
+    public List<OpcionPregunta> getOpciones() {
+        return opciones;
+    }
+
+    public void setOpciones(List<OpcionPregunta> opciones) {
+        this.opciones = opciones;
+    }
+
+    public String getSeccion() {
+        return seccion;
+    }
+
+    public void setSeccion(String seccion) {
+        this.seccion = seccion;
     }
 }
