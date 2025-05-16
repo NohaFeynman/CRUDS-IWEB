@@ -85,4 +85,6 @@ public class Usuario {
     public void setUrlFoto(String urlFoto) {
         this.urlFoto = urlFoto;
     }
+
+
 }
